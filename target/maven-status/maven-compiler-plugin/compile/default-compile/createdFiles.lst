@@ -1,0 +1,12 @@
+com\myproject\clients\Patient.class
+com\myproject\comparators\TimeComparator.class
+com\myproject\clients\IPatient.class
+com\myproject\registrationUtils\Registration.class
+com\myproject\comparators\SheduleOfDoctorsComparator.class
+com\myproject\registrationUtils\DeleteAppointment.class
+com\myproject\registrationUtils\ShowAppointments.class
+com\myproject\doctor\Doctor.class
+com\myproject\registrationUtils\AddAppointment.class
+com\myproject\shedules\ScheduleOfDoctors.class
+com\myproject\clients\PatientFactory.class
+com\myproject\App.class
