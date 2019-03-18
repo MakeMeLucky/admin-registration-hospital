@@ -1,9 +1,9 @@
 package com.myproject.doctor;
 
 import com.myproject.clients.Patient;
+import com.myproject.comparators.ScheduleOfDoctorsComparator;
 import com.myproject.comparators.TimeComparator;
-import com.myproject.comparators.SheduleOfDoctorsComparator;
-import com.myproject.shedules.ScheduleOfDoctors;
+import com.myproject.schedules.ScheduleOfDoctors;
 
 import java.time.LocalTime;
 import java.util.*;
@@ -14,7 +14,7 @@ public class Doctor {
     private String lastname;
     private String specialty;
     ScheduleOfDoctors schedule;
-    private Set<ScheduleOfDoctors> scheduleList=new TreeSet<>(new SheduleOfDoctorsComparator());
+    private Set<ScheduleOfDoctors> scheduleList=new TreeSet<>(new ScheduleOfDoctorsComparator());
     private LocalTime time1,time2;
     private Set<LocalTime> timeSet;
     private Boolean isTimeExist=false;
@@ -102,7 +102,10 @@ public class Doctor {
     }
 
     public String getStringScheduleList(){ //String version of getScheduleList
-        return scheduleList.toString().replace("]","").replace("[","");
+        String local;
+        if(getScheduleList().isEmpty()) local=this+"    Empty";
+        else local=this+"   "+scheduleList.toString().replace("]","").replace("[","");
+        return local;
     }
 
     @Override

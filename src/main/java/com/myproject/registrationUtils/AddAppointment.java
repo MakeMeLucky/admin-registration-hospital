@@ -5,12 +5,28 @@ import com.myproject.clients.PatientFactory;
 import com.myproject.doctor.Doctor;
 
 import java.time.LocalTime;
+import java.util.Scanner;
 
 public class AddAppointment {
     private PatientFactory patientFactory=new PatientFactory();
     private LocalTime time;
 
-    public AddAppointment() {
+    public AddAppointment(Doctor therapist, Doctor surgeon) {
+        Scanner in=new Scanner(System.in);
+        String choice;
+        while (true) {
+
+            System.out.println("Choose a doctor:" + "\n" + "1- " + therapist + "   2- " + surgeon);
+            choice = in.nextLine();
+            if (choice.equals("1")) {
+                addAppointment(therapist);
+                break;
+            }
+            if (choice.equals("2")) {
+                addAppointment(surgeon);
+                break;
+            }
+        }
     }
 
     public void addAppointment(Doctor doctor){

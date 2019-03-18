@@ -9,9 +9,6 @@ public class Registration {
     public Registration() {
         Doctor therapist = new Doctor("Mike", "Wazowski", "Therapist");
         Doctor surgeon = new Doctor("James", "P. Sallivan", "Surgeon");
-        AddAppointment addAppointment = new AddAppointment();
-        DeleteAppointment deleteAppointment = new DeleteAppointment();
-        ShowAppointments showAppointments = new ShowAppointments();
         Scanner in = new Scanner(System.in);
 
         while (true) {
@@ -21,35 +18,20 @@ public class Registration {
 
 
             if (choice.equals("1")) {
-                while (true) {
-
-                    System.out.println("Choose a doctor:" + "\n" + "1- " + therapist + "   2- " + surgeon);
-                    choice = in.nextLine();
-                    if (choice.equals("1")) {
-                        addAppointment.addAppointment(therapist);
-                        break;
-                    }
-                    if (choice.equals("2")) {
-                        addAppointment.addAppointment(surgeon);
-                        break;
-                    }
-                }
+                AddAppointment addAppointment = new AddAppointment(therapist,surgeon);
             }
 
             if(choice.equals("2")){
-
+                DeleteAppointment deleteAppointment = new DeleteAppointment(therapist,surgeon);
             }
 
             if(choice.equals("3")){
-                System.out.println(therapist.getStringTimeSet());
-                System.out.println(therapist.getStringScheduleList());
+                ShowAppointments showAppointments = new ShowAppointments(therapist,surgeon);
             }
 
             if(choice.equals("4")){
                 break;
             }
-
-
         }
     }
 }
